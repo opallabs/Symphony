@@ -23,28 +23,28 @@ public final class ParentViewController: UIViewController {
     }
 
     // MARK: - ViewContoller Containment
-    override public var childViewControllerForStatusBarStyle : UIViewController? {
+    override public var childForStatusBarStyle : UIViewController? {
         return displayedViewController
     }
     
-    override public var childViewControllerForStatusBarHidden : UIViewController? {
+    override public var childForStatusBarHidden : UIViewController? {
         return displayedViewController
     }
 
     public func display(viewController: UIViewController) {
         if let existingVC = displayedViewController {
-            existingVC.willMove(toParentViewController: nil)
+            existingVC.willMove(toParent: nil)
             existingVC.view.removeFromSuperview()
-            existingVC.removeFromParentViewController()
+            existingVC.removeFromParent()
         }
 
         displayedViewController = viewController
-        addChildViewController(viewController)
+        addChild(viewController)
         viewController.view.frame = view.bounds
         viewController.view.setNeedsLayout()
         viewController.view.layoutIfNeeded()
         view.addSubview(viewController.view)
-        viewController.didMove(toParentViewController: self)
+        viewController.didMove(toParent: self)
         setNeedsStatusBarAppearanceUpdate()
     }
 }
