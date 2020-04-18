@@ -6,6 +6,7 @@
 //  Copyright © 2016 Spilt Cocoa. All rights reserved.
 //
 
+#if canImport(UIKit)
 import Symphony
 
 class ApplicationComposer: Composer {
@@ -66,3 +67,5 @@ extension ApplicationComposer: Stateable {
         receivedStateMessage = true
     }
 }
+
+#endif

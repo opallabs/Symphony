@@ -6,6 +6,7 @@
 //  Copyright © 2016 Spilt Cocoa. All rights reserved.
 //
 
+#if canImport(UIKit)
 import UIKit
 
 /// a type that can be presented by a Composer.
@@ -16,3 +17,5 @@ public protocol Composable: class {
 public extension Composable where Self: Composer {
     var viewController: UIViewController { return containerViewController }
 }
+
+#endif

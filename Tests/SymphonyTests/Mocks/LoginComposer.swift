@@ -1,37 +1,43 @@
 //
-//  MainComposer.swift
+//  LoginComposer.swift
 //  Symphony
 //
 //  Created by Jeff Boek on 1/7/16.
 //  Copyright © 2016 Spilt Cocoa. All rights reserved.
 //
 
+#if canImport(UIKit)
 import Symphony
 
-class MainComposer: Composer {
+class LoginComposer: Composer, Composable {
     lazy var containerViewController = ParentViewController()
     var currentComposables: [Composable] = []
-    var currentState: State = .none
+    var currentState: State = .main
+    var eventListener: ((Event) -> Void)? = nil
 }
 
-extension MainComposer: Stateable {
+extension LoginComposer: Stateable {
     enum State: StateProtocol {
-        case none
+        case main
+        case finished
 
         func canTransition(to state: State) -> Bool {
             switch(self, state) {
-            case(.none, .none): return true
+            case(.main, .finished): return true
+            default: return false
             }
         }
     }
 
     func didTransition(from oldState: State, to newState: State) {
-        
+        eventListener?(.finished)
     }
 }
 
-extension MainComposer: EventProtocol {
+extension LoginComposer: Eventable {
     enum Event: EventProtocol {
-        case logout
+        case finished
     }
 }
+
+#endif

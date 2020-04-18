@@ -6,6 +6,7 @@
 //  Copyright © 2016 Spilt Cocoa. All rights reserved.
 //
 
+#if canImport(UIKit)
 import XCTest
 @testable import Symphony
 
@@ -46,3 +47,5 @@ class StateTests: XCTestCase {
         XCTAssertFalse(invalidTransition)
     }
 }
+
+#endif

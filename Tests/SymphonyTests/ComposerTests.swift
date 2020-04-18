@@ -6,6 +6,7 @@
 //  Copyright © 2015 Spilt Cocoa. All rights reserved.
 //
 
+#if canImport(UIKit)
 import XCTest
 import Symphony
 
@@ -416,3 +417,5 @@ class NavigationComposerTests: XCTestCase {
         XCTAssertNotNil(weakPresentedComposable)
     }
 }
+
+#endif

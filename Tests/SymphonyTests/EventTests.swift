@@ -6,6 +6,7 @@
 //  Copyright © 2016 Spilt Cocoa. All rights reserved.
 //
 
+#if canImport(UIKit)
 import XCTest
 @testable import Symphony
 
@@ -26,3 +27,5 @@ class EventTests: XCTestCase {
         XCTAssertTrue(applicationComposer.receivedEvent)
     }
 }
+
+#endif

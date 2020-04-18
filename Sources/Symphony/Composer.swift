@@ -6,6 +6,7 @@
 //  Copyright © 2015 Spilt Cocoa. All rights reserved.
 //
 
+#if canImport(UIKit)
 import UIKit
 
 /// A type that manages the presentation of one or many Composables
@@ -75,3 +76,5 @@ public extension Composer where ContainerViewController: UINavigationController 
         containerViewController.setViewControllers(composables.map { $0.viewController }, animated: animated)
     }
 }
+
+#endif

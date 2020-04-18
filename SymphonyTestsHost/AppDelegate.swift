@@ -6,6 +6,7 @@
 //  Copyright © 2016 Spilt Cocoa. All rights reserved.
 //
 
+#if canImport(UIKit)
 import UIKit
 import Symphony
 
@@ -23,3 +24,4 @@ class AppDelegate: UIViewController, UIApplicationDelegate {
     }
 }
 
+#endif
